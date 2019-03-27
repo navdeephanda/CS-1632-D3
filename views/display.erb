@@ -1,0 +1,19 @@
+<html>
+  <head></head>
+  <body>
+  <table>
+  <tr>
+    <% size.times do |i|%>
+    <td><b><%= size - i - 1 %></b></td>
+    <% end %>
+  </tr>
+  <% truth_table.each do |sub| %>                    
+    <tr>
+    <% sub.each do |sym| %>
+    <td><%= sym %></td>
+    <% end %>
+    </tr>
+  <% end %>
+  </table>
+  </body>
+</html>

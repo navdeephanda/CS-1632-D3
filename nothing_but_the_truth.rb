@@ -1,14 +1,19 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
+def gen_binary_array_representation(n, bits, true_symbol, false_symbol)
+  a = []
+  bits.times { |shift| a.push("#{(n >> shift) & 1 == 0 ? true_symbol : false_symbol} ") }
+  a.reverse
+end
+
 def table(n, true_symbol, false_symbol)
   arr = []
   (2**n).times do |row|
-    a = []
-    n.times { |shift| a.push("#{(row >> shift) & 1 == 0 ? false_symbol : true_symbol} ") }
-    arr.push(a.join(" "))
+    a = gen_binary_array_representation(row, n, true_symbol, false_symbol)
+    arr.push(a)
   end
-  arr
+  arr.reverse
 end
 
 def and
