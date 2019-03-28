@@ -6,6 +6,10 @@
     <% size.times do |i|%>
     <td><b><%= size - i - 1 %></b></td>
     <% end %>
+    <td><b>AND</b></td>
+    <td><b>OR</b></td>
+    <td><b>NAND</b></td>
+    <td><b>NOR</b></td>
   </tr>
   <% truth_table.each do |sub| %>                    
     <tr>
@@ -15,5 +19,7 @@
     </tr>
   <% end %>
   </table>
+  <br>
+  <a href="/">Back to main page</a>
   </body>
 </html>
