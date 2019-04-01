@@ -94,10 +94,16 @@ get '/display' do
     size = 3
   end
 
+  # handling the condition in to_i where float gets truncated to int
+  # it isn't user friendly to me to have the program accept a 2.5, so
+  # i make that an error
+  size_f = size.to_f
   size = size.to_i
 
-  if valid_args?(true_symbol, false_symbol, size)
-    truth_table = table(size, true_symbol, false_symbol)
+  if !(size_f % 1).zero?
+    erb :invalid_params
+  elsif valid_args?(true_symbol.strip, false_symbol.strip, size)
+    truth_table = table(size, true_symbol.strip, false_symbol.strip)
     erb :display, :locals => { size: size, truth_table: truth_table }
   else
     erb :invalid_params
