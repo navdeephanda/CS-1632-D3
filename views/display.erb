@@ -1,25 +1,29 @@
 <html>
   <head></head>
-  <body>
+  <body id='display'>
   <table>
   <tr>
     <% size.times do |i|%>
-    <td><b><%= size - i - 1 %></b></td>
+    <td id='hdr_<%= size - i - 1 %>'><b><%= size - i - 1 %></b></td>
     <% end %>
-    <td><b>AND</b></td>
-    <td><b>OR</b></td>
-    <td><b>NAND</b></td>
-    <td><b>NOR</b></td>
+    <td id='and_hdr'><b>AND</b></td>
+    <td id='or_hdr'><b>OR</b></td>
+    <td id='nand_hdr'><b>NAND</b></td>
+    <td id='nor_hdr'><b>NOR</b></td>
   </tr>
-  <% truth_table.each do |sub| %>                    
+  <% r=0 %>
+  <% truth_table.each do |sub| %>
     <tr>
+    <% c=0 %>
     <% sub.each do |sym| %>
-    <td><%= sym %></td>
+    <td id='elem_<%=r%>_<%=c%>'><%= sym %></td>
+    <% c = c+1 %>
     <% end %>
     </tr>
+    <% r = r+1 %>
   <% end %>
   </table>
   <br>
-  <a href="/">Back to main page</a>
+  <a id='backtomain' href="/">Back to main page</a>
   </body>
 </html>

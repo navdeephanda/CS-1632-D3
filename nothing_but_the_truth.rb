@@ -100,6 +100,6 @@ get '/display' do
     truth_table = table(size, true_symbol, false_symbol)
     erb :display, :locals => { size: size, truth_table: truth_table }
   else
-    erb :error_invalid_params
+    erb :invalid_params
   end
 end

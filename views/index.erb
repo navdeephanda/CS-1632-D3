@@ -3,13 +3,16 @@
   <body>
       <p>
       <form action="/display">
-        True symbol: <input type='text' name='true_symbol' />
+        <label id='ts_label' for="true_symbol_input">True symbol:</label>
+        <input id='true_symbol_input' type='text' name='true_symbol' />
         <br>
-        False symbol: <input type='text' name='false_symbol' />
+        <label id='fs_label' for="false_symbol_input">False symbol:</label>
+        <input id='false_symbol_input' type='text' name='false_symbol' />
         <br>
-        Size (2^x): <input type='text' name='size' />
+        <label id='size_label' for="size_input">Size (2^x):</label>
+        <input id='size_input' type='text' name='size' />
         <br>
-        <input type='submit' value='Show truth table' />
+        <input id='form_submit_button' type='submit' value='Show truth table' />
         <br>
         <a href="/">Reload page</a>
       </form>
